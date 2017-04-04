@@ -1,38 +1,33 @@
-/* Scraper Template  (18.10) 
- * ========================= */
-
-
-// Students: Using this skeleton, the cheerio documentation,
-// and what you've learned in class so far, scrape a website
-// of your choice, save it in a result array, and log it to the console.
-
-
 // Dependencies:
 
-// Snatches HTML from URLs
+var express = require("express");
+var bodyParser = require("body-parser");
+var expressHandlebars = require("express-handlebars");
+var mongoose = require("mongoose");
+// Grabs HTML from URLs
 var request = require('request');
-// Scrapes our HTML
+// Scrapes HTML
 var cheerio = require('cheerio');
 
-// Make a request call to grab the HTML body from the site of your choice
+
+// Routes
+
+// Requests HTML from site
 request('http://www.theonion.com/', function(error, response, html) {
 
-    // Load the HTML into cheerio and save it to a variable
-    // '$' becomes a shorthand for cheerio's selector commands, much like jQuery's '$'
+    // Loads HTML into cheerio and saves into variable
     var $ = cheerio.load(html);
 
-    // An empty array to save the data that we'll scrape
+    // Stores results
     var result = [];
 
-    // Select each instance of the HTML body that you want to scrape
-    // NOTE: Cheerio selectors function similarly to jQuery's selectors, 
-    // but be sure to visit the package's npm page to see how it works
+    // Selects each instance of HTML body to scrape
     $('h2.headline').each(function(i, element) {
 
         var link = $(element).children().attr("href");
         var title = $(element).children().text();
 
-        // Save these results in an object that we'll push into the result array we defined earlier
+        // Saves results in an object and pushes to array
         result.push({
             title: title,
             link: link
