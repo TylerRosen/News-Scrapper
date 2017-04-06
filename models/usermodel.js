@@ -4,4 +4,4 @@ var mongoose = require("mongoose");
 // Create the Schema class
 var Schema = mongoose.Schema;
 
-'Test'
+console.log(Test);
