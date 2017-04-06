@@ -1,7 +1,7 @@
 // Require mongoose
 var mongoose = require("mongoose");
 
-// Create the Schema class
+// Create Schema class
 var Schema = mongoose.Schema;
 
 //Article Schema
