@@ -9,6 +9,27 @@ var request = require('request');
 // Scrapes HTML
 var cheerio = require('cheerio');
 
+var articles = require("./models/article.js");
+var notes = require("./models/note.js");
+
+// Initialize Express
+var app = express();
+
+mongoose.connect("mongodb://localhost/onionscrapper");
+
+// Saves mongoose connection to db
+var db = mongoose.connection;
+
+// If there's a mongoose error, log it to console
+db.on("error", function(error) {
+  console.log("Mongoose Error: ", error);
+});
+
+// Once we "open" a connection to mongoose, tell the console we're in
+db.once("open", function() {
+  console.log("Mongoose connection successful.");
+});
+
 
 // Routes
 
