@@ -14,6 +14,12 @@ $.getJSON("/articles", function(data) {
     }
 });
 
+
+// Scrapes articles
+$('#scrape').on('click', function() {
+    console.log('hello');
+});
+
 $(document).on("click", "p", function() {
     // Empties note
     $("#notes").empty();
