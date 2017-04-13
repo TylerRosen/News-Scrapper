@@ -19,6 +19,12 @@ var app = express();
 //Creates static directory
 app.use(express.static("public"));
 
+app.use(
+  bodyParser.urlencoded({
+    extended: false
+  })
+);
+
 mongoose.connect("mongodb://localhost/onionscrapper");
 
 // Saves mongoose connection to db
