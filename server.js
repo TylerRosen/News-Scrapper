@@ -26,20 +26,28 @@ app.use(
   })
 );
 
-mongoose.connect("mongodb://heroku_r2rm8vs7:enjakc84et11hd1pluuidoh7mv@ds149800.mlab.com:49800/heroku_r2rm8vs7");
-
 // Saves mongoose connection to db
-var db = mongoose.connection;
+var db = process.env.MONGODB_URL || "mongodb://localhost/onionscrapper";
+
+mongoose.connect(db, function(error){
+  if(error){
+    console.log(error)
+  } else {
+    console.log('connection successful')
+  }
+});
+
+// heroku_r2rm8vs7:enjakc84et11hd1pluuidoh7mv@ds149800.mlab.com:49800/heroku_r2rm8vs7
 
 // If there's a mongoose error, log it to console
-db.on("error", function(error) {
-  console.log("Mongoose Error: ", error);
-});
+// db.on("error", function(error) {
+//   console.log("Mongoose Error: ", error);
+// });
 
 // Once we "open" a connection to mongoose, tell the console we're in
-db.once("open", function() {
-  console.log("Mongoose connection successful.");
-});
+// db.once("open", function() {
+//   console.log("Mongoose connection successful.");
+// });
 
 // Routes
 
