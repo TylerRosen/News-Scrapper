@@ -10,8 +10,8 @@ var cheerio = require("cheerio");
 
 mongoose.Promise = Promise;
 
-var Note = require("./models/Note.js");
-var Article = require("./models/Article.js");
+var Note = require("./models/Note");
+var Article = require("./models/Article");
 
 // Initialize Express
 var app = express();
