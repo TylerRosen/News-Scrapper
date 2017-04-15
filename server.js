@@ -25,7 +25,7 @@ app.use(
   })
 );
 
-mongoose.connect("mongodb://localhost/onionscrapper");
+mongoose.connect("mongodb://heroku_r2rm8vs7:enjakc84et11hd1pluuidoh7mv@ds149800.mlab.com:49800/heroku_r2rm8vs7");
 
 // Saves mongoose connection to db
 var db = mongoose.connection;
