@@ -24,5 +24,8 @@
         "express-handlebars": "^3.0.0",
         "mongoose": "^4.9.3",
         "request": "^2.81.0"
+    },
+    "engines": {
+        "node": "6.11.1"
     }
 }
